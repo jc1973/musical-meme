@@ -31,7 +31,7 @@
               "type": "exec",
               "run_if": "passed",
               "on_cancel" : null,
-              "command": "/usr/local/bin/terraform"
+              "command": "/usr/local/bin/terraform",
               "arguments": [ "--help" ],
               "working_directory": null
             }
