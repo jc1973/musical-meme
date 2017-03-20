@@ -37,7 +37,7 @@
               "type": "exec",
               "run_if": "passed",
               "on_cancel" : null,
-              "command": "rspec",
+              "command": "/opt/chefdk/embedded/bin/rspec",
               "arguments": [ ],
               "working_directory": "cookbooks/kong-support"
             }
