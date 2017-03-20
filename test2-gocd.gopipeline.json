@@ -4,7 +4,7 @@
   "group" : "gotest2",
   "materials": [
     {
-      "url": "git@github.com:JSainsburyPLC/id-terraform.git",
+      "url": "git@github.com:JSainsburyPLC/id-chef.git",
       "type": "git"
     }
   ],
@@ -37,7 +37,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "echo",
-              "arguments": [ "hello" ],
+              "arguments": [ "chef" ],
               "working_directory": null
             }
           ]
