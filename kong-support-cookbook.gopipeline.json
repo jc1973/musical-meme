@@ -11,7 +11,7 @@
   ],
   "stages": [
     {
-      "name": "hello",
+      "name": "rspec",
       "fetch_materials": true,
       "never_cleanup_artifacts": false,
       "clean_working_directory": false,
@@ -24,7 +24,7 @@
       "environment_variables": [],
       "jobs": [
         {
-          "name": "hello",
+          "name": "rspec",
           "environment_variables": [],
           "tabs": [],
           "resources": [],
@@ -37,9 +37,67 @@
               "type": "exec",
               "run_if": "passed",
               "on_cancel" : null,
-              "command": "echo",
+              "command": "rspec",
               "arguments": [ "chef" ],
-              "working_directory": null
+              "working_directory": "cookbooks/kong-support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foodcritic",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "foodcritic",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "foodcritic",
+              "arguments": [ "." ],
+              "working_directory": "cookbooks/kong-support"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cookstyle",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "cookstyle",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "cookstyle",
+              "arguments": [ ],
+              "working_directory": "cookbooks/kong-support"
             }
           ]
         }
