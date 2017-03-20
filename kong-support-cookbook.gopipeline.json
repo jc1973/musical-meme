@@ -1,11 +1,12 @@
 {
-  "name": "gocd-test2",
+  "name": "kong-support",
   "environment_variables": [],
-  "group" : "gotest2",
+  "group" : "cookbook-tests",
   "materials": [
     {
       "url": "git@github.com:JSainsburyPLC/id-chef.git",
-      "type": "git"
+      "type": "git",
+      "branch": "sort-chef-layout"
     }
   ],
   "stages": [
