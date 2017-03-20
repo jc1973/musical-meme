@@ -38,7 +38,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "rspec",
-              "arguments": [ "chef" ],
+              "arguments": [ ],
               "working_directory": "cookbooks/kong-support"
             }
           ]
