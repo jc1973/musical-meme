@@ -61,7 +61,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "/opt/chefdk/bin/foodcritic",
-              "arguments": [ "." ],
+              "arguments": [ "*" ],
               "working_directory": "cookbooks/js-gocd/recipes"
             }
           ]
