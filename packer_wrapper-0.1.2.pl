@@ -9,9 +9,10 @@ my $type = "t2.small";
 my $image = "ami-47a23a30";
 my $volume_size = 8;
 my $chef_environment = "_default";
-my $packer_json =  "packer-chef-client.json";
+my $packer_json =  "packer-chef-client-inject.json";
 my $exit_status = 0;
 my $attr_json = "";
+#AMI_DISK_SIZE
 
 
 while ( my $input = shift (@ARGV) ) {
@@ -36,12 +37,6 @@ while ( my $input = shift (@ARGV) ) {
   }
   if ( $input =~ /-a$|--attribute-json$/ ) {
     $attr_json = shift (@ARGV);
-  }
-  if ( $input =~ /-vpcid$|--vpcid$/ ) {
-    $vpc_id = shift (@ARGV);
-  }
-  if ( $input =~ /-subnetid$|--subnetid$/ ) {
-    $subnet_id = shift (@ARGV);
   }
   if ( $input =~ /-j$|--json-file$/ ) {
     $packer_json = shift (@ARGV);
@@ -95,11 +90,9 @@ print WRITEFILE "export PACKER_PROJECT_SSH_KEY=$ENV{'HOME'}/packer-aws/$session_
 print WRITEFILE "export AMI_TYPE=$type\n";
 print WRITEFILE "export AMI_IMAGE=$image\n";
 print WRITEFILE "export ATTR_JSON=$attr_json\n";
+print WRITEFILE "export RESOURCE=$resource\n";
 print WRITEFILE "export AMI_DISK_SIZE=$volume_size\n";
-#print WRITEFILE "export RESOURCE=$resource\n";
-#print WRITEFILE "export CHEF_ENVIRONMENT=$chef_environment\n";
-print WRITEFILE "export VPC_ID=$vpc_id\n";
-print WRITEFILE "export SUBNET_ID=$subnet_id\n";
+print WRITEFILE "export CHEF_ENVIRONMENT=$chef_environment\n";
 print WRITEFILE @contents;
 close WRITEFILE;
 
@@ -131,20 +124,19 @@ unless ( -f "$ENV{'HOME'}/packer-aws/$session_name-$keyname" ) {
 
 print "\nCreate environment variables to source: $cmd\n\n";
 
-# Using policy files not roles and environments
-# # Check that we have only 1 chef role
-# 
-# $cmd = "knife role list | grep '^$resource\$'";
-# @output = `$cmd`;
-# if ( scalar(@output) != 1 ) {
-#   print "Role $resource, does not exist on chef server.\n";
-#   exit 1;
-# }
-# if ( scalar(@output) > 1 ) {
-#   print "\nMaybe you wanted one of these:\n @output\n";
-#   exit 1;
-# }
-# 
+# Check that we have only 1 chef role
+
+$cmd = "knife role list | grep '^$resource\$'";
+@output = `$cmd`;
+if ( scalar(@output) != 1 ) {
+  print "Role $resource, does not exist on chef server.\n";
+  exit 1;
+}
+if ( scalar(@output) > 1 ) {
+  print "\nMaybe you wanted one of these:\n @output\n";
+  exit 1;
+}
+
 $cmd = ". /tmp/$session_name-$keyname.source && packer build $packer_json";
 
 print "\nNow running packer build command: packer build $packer_json\n\n";
