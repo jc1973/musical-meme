@@ -8,6 +8,11 @@
       "name": "dependency",
       "pipeline": "js-gocd-trigger",
       "stage": "check-commits"
+    },
+    {
+      "url": "git@github.com:JSainsburyPLC/id-chef.git",
+      "type": "git",
+      "branch": "sort-chef-layout"
     }
   ],
   "stages": [
