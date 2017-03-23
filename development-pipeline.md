@@ -8,6 +8,10 @@ Development Pipeline
   - Unit tests
   - Functional tests
  - Any failure will terminate AMI instance and report back to GoCD / github
- - Tests passed, AMI instance does a new clean checkut from githubwit **github sha**
- - AMI builds JAR file and deploys to S3
- 
+ - Tests passed, AMI instance does a clean up
+  ```bash
+  git commit -- .
+  git clean -d -f
+  ```
+ - AMI builds JAR file
+ - AMI pushes JAR to S3
