@@ -4,6 +4,12 @@
   "group" : "cookbook-tests",
   "materials": [
     {
+      "url": "git@github.com:JSainsburyPLC/id-chef.git",
+      "type": "git",
+      "branch": "sort-chef-layout",
+      "name": "triggerd"
+    }, 
+    {
       "type": "dependency",
       "name": "dependency",
       "pipeline": "kong-support-trigger",
