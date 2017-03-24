@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-my ( $AWS_ACCESS_KEY_ID, $SECRETACCESSKEY, $SESSIONTOKEN, $arn, $cmd, $line, @contents, @output, $resource, $session_name );
+my ( $AWS_ACCESS_KEY_ID, $SECRETACCESSKEY, $SESSIONTOKEN, $arn, $cmd, $line, @contents, @output, $resource, $session_name, $vpc_id, $subnet_id );
 my $KEYMATERIAL = "";
 my $type = "t2.small";
 my $image = "ami-47a23a30";
@@ -148,6 +148,8 @@ print "\nCreate environment variables to source: $cmd\n\n";
 $cmd = ". /tmp/$session_name-$keyname.source && packer build $packer_json";
 
 print "\nNow running packer build command: packer build $packer_json\n\n";
+
+print "\n\n$cmd\n\n";
 
 @output = `$cmd`;
 $exit_status = $? >> 8;

@@ -1,0 +1,15 @@
+{
+  "chef_client": {
+    "daemon_options": [
+      "-j",
+      "/etc/chef/first-boot.json"
+    ]
+  },
+ "id_chef" : {
+   "facade_deploy" : {
+     "env" : "staging"
+    }
+  },
+  "policy_name" : "facade",
+  "policy_group" : "dev2"
+}

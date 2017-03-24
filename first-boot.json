@@ -1,0 +1,1 @@
+{ "policy_name":"facade", "policy_group":"dev2", "id_chef": {"facade_deploy": { "env": "staging"}}}
