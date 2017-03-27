@@ -15,3 +15,22 @@
    14  export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
    15  gradle -v
    16  history
+
+# get stuff running
+
+   20  locate ops/set-up-local-env.sh
+   21  cd /opt/facade/releases/1abfc987d7674aed16b586a3ecf6a44a863b0e52/ops/set-up-local-env.sh
+   22  cd /opt/facade/releases/1abfc987d7674aed16b586a3ecf6a44a863b0e52/
+   23  ls
+   24  grep -rl missions *
+   25  ps -aef | grep java
+   26  ls
+   27  ./gradle -w
+   28  gradle functional-tests:test -PfunctionalTest=true
+   29  netstat -altpn
+   30  ps -aef | grep java | less
+   31  locate application.propertie
+   32  view /opt/facade/config/application.properties
+   33  history
+   34  /etc/init.d/facade status
+   35  history
