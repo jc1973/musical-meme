@@ -7,6 +7,7 @@
       "url": "git@github.com:JSainsburyPLC/id-facade.git",
       "type": "git",
       "branch": "SID-94",
+      "name": "id-facade"
     }
   ],
   "stages": [
