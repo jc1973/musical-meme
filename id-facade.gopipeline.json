@@ -1,25 +1,24 @@
 {
-  "name": "id-facade",
+  "name": "js-gocd",
   "environment_variables": [],
-  "group" : "java-apps",
+  "group" : "cookbook-tests",
   "materials": [
     {
-      "url": "git@github.com:JSainsburyPLC/id-chef.git",
+      "url": "git@github.com:JSainsburyPLC/id-facade.git",
       "type": "git",
-      "branch": "sort-chef-layout",
-      "name": "on-push"
+      "branch": "SID-94",
     }
   ],
   "stages": [
     {
-      "name": "unit-test",
+      "name": "initiate-instance",
       "fetch_materials": true,
       "never_cleanup_artifacts": false,
       "clean_working_directory": false,
       "environment_variables": [],
       "jobs": [
         {
-          "name": "rspec",
+          "name": "packer",
           "environment_variables": [],
           "tabs": [],
           "resources": [],
@@ -41,14 +40,14 @@
       ]
     },
     {
-      "name": "functional-test",
+      "name": "unit-tests",
       "fetch_materials": true,
       "never_cleanup_artifacts": false,
       "clean_working_directory": false,
       "environment_variables": [],
       "jobs": [
         {
-          "name": "foodcritic",
+          "name": "gradle",
           "environment_variables": [],
           "tabs": [],
           "resources": [],
@@ -63,35 +62,6 @@
               "on_cancel" : null,
               "command": "/opt/chefdk/bin/foodcritic",
               "arguments": [ "." ],
-              "working_directory": "cookbooks/js-gocd"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "build-jar",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
-      "clean_working_directory": false,
-      "environment_variables": [],
-      "jobs": [
-        {
-          "name": "cookstyle",
-          "environment_variables": [],
-          "tabs": [],
-          "resources": [],
-          "artifacts": [],
-          "properties": [],
-          "run_instance_count": null,
-          "timeout": 0,
-          "tasks": [
-            {
-              "type": "exec",
-              "run_if": "passed",
-              "on_cancel" : null,
-              "command": "/opt/chefdk/bin/cookstyle",
-              "arguments": [ ],
               "working_directory": "cookbooks/js-gocd"
             }
           ]
