@@ -1,7 +1,7 @@
 {
-  "name": "js-gocd",
+  "name": "id-facade",
   "environment_variables": [],
-  "group" : "cookbook-tests",
+  "group" : "unit-tests",
   "materials": [
     {
       "url": "git@github.com:JSainsburyPLC/id-facade.git",
