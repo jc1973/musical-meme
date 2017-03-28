@@ -1,13 +1,12 @@
 {
-  "name": "id-facade",
+  "name": "id-facade2",
   "environment_variables": [],
-  "group" : "unit-tests",
+  "group" : "java-apps",
   "materials": [
     {
       "url": "git@github.com:JSainsburyPLC/id-facade.git",
       "type": "git",
-      "branch": "SID-94",
-      "name": "id-facade"
+      "branch": "SID-94"
     }
   ],
   "stages": [
