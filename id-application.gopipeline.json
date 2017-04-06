@@ -1,0 +1,108 @@
+{
+  "name": "id-application",
+  "environment_variables": [],
+  "group" : "cookbook-tests",
+  "materials": [
+    {
+      "url": "git@github.com:JSainsburyPLC/id-chef.git",
+      "type": "git",
+      "branch": "divide-cookbooks",
+      "name": "triggerd"
+    }, 
+    {
+      "type": "dependency",
+      "name": "dependency",
+      "pipeline": "id-application-trigger",
+      "stage": "check-commits"
+    }
+  ],
+  "stages": [
+    {
+      "name": "rspec",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "rspec",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "/opt/chefdk/embedded/bin/rspec",
+              "arguments": [ ],
+              "working_directory": "cookbooks/id-application"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "foodcritic",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "foodcritic",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "/opt/chefdk/bin/foodcritic",
+              "arguments": [ "." ],
+              "working_directory": "cookbooks/id-application"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cookstyle",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "cookstyle",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "/opt/chefdk/bin/cookstyle",
+              "arguments": [ ],
+              "working_directory": "cookbooks/id-application"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
