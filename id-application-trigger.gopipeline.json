@@ -32,7 +32,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "/opt/chefdk/embedded/bin/ruby",
-              "arguments": [ "../are-commits-4-me.rb", "${GO_REVISION}" ],
+              "arguments": [ "are-commits-4-me.rb", "${GO_REVISION}" ],
               "working_directory": "cookbooks/id-application"
             }
           ]
