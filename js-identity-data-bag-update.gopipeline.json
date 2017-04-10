@@ -1,7 +1,7 @@
 {
   "name": "update-gocd-data-bag",
   "environment_variables": [],
-  "group" : "application-trggers",
+  "group" : "application-triggers",
   "materials": [
     {
       "url": "git@github.com:JSainsburyPLC/id-chef.git",
