@@ -17,6 +17,35 @@
   ],
   "stages": [
     {
+      "name": "where-am-i",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "checkin-databag",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "ls",
+              "arguments": [ ],
+              "working_directory": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "update-databag-on-github",
       "fetch_materials": true,
       "never_cleanup_artifacts": false,
