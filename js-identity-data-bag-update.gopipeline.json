@@ -37,7 +37,7 @@
               "type": "exec",
               "run_if": "passed",
               "on_cancel" : null,
-              "command": "icheckin-gocd-orchestrate-databag.sh",
+              "command": "checkin-gocd-orchestrate-databag.sh",
               "arguments": [ ],
               "working_directory": "."
             }
