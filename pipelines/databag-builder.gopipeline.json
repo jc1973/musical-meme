@@ -90,7 +90,7 @@
               "run_if": "passed",
               "on_cancel" : null,
               "command": "ls",
-              "arguments": [ "-tralh" ],
+              "arguments": [ "-tralh", "orchestration/packer" ],
               "working_directory": null
             }
           ]
