@@ -6,7 +6,7 @@
     {
       "url": "git@github.com:JSainsburyPLC/id-chef.git",
       "type": "git",
-      "branch": "monitoring_01"
+      "branch": "master"
     }
   ],
   "stages": [
