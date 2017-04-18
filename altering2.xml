@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="89">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="120e2d93-6603-4986-8525-f7a77ab2540d" commandRepositoryLocation="default" serverId="e982ed4a-d566-421b-98f0-48daf74ab74b">
+    <security>
+      <passwordFile path="/home/go/htpasswd" />
+    </security>
+  </server>
+  <scms>
+    <scm id="56ffa40b-6a9e-4563-b230-f58896470cb8" name="githubpr">
+      <pluginConfiguration id="github.pr" version="1" />
+      <configuration>
+        <property>
+          <key>url</key>
+          <value>git@github.com:JSainsburyPLC/id-chef.git</value>
+        </property>
+      </configuration>
+    </scm>
+  </scms>
+  <config-repos>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:JSainsburyPLC/id-terraform.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:JSainsburyPLC/id-chef.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:jc1973/musical-meme.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:jc1973/bookish-octo-barnacle.git" />
+    </config-repo>
+  </config-repos>
+  <pipelines group="gotest">
+    <pipeline name="pr-build" template="pr-xml">
+      <materials>
+        <git url="git@github.com:JSainsburyPLC/id-chef.git" />
+      </materials>
+    </pipeline>
+    <pipeline name="echoing">
+      <materials>
+        <git url="git@github.com:JSainsburyPLC/id-chef.git" dest="blah" materialName="git" />
+        <scm ref="56ffa40b-6a9e-4563-b230-f58896470cb8" dest="ok" />
+      </materials>
+      <stage name="echoing">
+        <jobs>
+          <job name="echoing">
+            <tasks>
+              <exec command="/bin/bash">
+                <arg>-c</arg>
+                <arg>echo hello</arg>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <pipelines group="java-apps" />
+  <pipelines group="application-triggers" />
+  <pipelines group="ami-builder" />
+  <pipelines group="cookbook-tests" />
+  <pipelines group="cookbook-triggers" />
+  <pipelines group="application-trggers" />
+  <agents>
+    <agent hostname="gocd-server-centos-73.vagrantup.com" ipaddress="10.0.2.15" uuid="22b620c2-2d2e-40f6-afd1-60ff526ea69a" />
+  </agents>
+</cruise>
+

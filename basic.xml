@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="89">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="7a6c1eea-5a38-458a-b268-8e0fd593b26e" commandRepositoryLocation="default" serverId="a3bc26e4-3e09-4fc7-aa4e-08ad63c19d14">
+    <security>
+      <passwordFile path="/home/go/htpasswd" />
+    </security>
+  </server>
+  <config-repos>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:JSainsburyPLC/id-terraform.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:JSainsburyPLC/id-chef.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:jc1973/musical-meme.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:jc1973/bookish-octo-barnacle.git" />
+    </config-repo>
+    <config-repo plugin="json.config.plugin">
+      <git url="git@github.com:JSainsburyPLC/id-facade.git" />
+    </config-repo>
+  </config-repos>
+  <pipelines group="cookbook-tests" />
+  <pipelines group="cookbook-triggers" />
+  <pipelines group="application-triggers" />
+  <pipelines group="gotest" />
+  <pipelines group="java-apps" />
+  <pipelines group="ami-builder" />
+  <agents>
+    <agent hostname="gocd-server-centos-73.vagrantup.com" ipaddress="10.0.2.15" uuid="82da689d-cb12-4633-864a-10fdbe736fd8" />
+  </agents>
+</cruise>
