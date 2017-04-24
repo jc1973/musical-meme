@@ -2,6 +2,7 @@
   "name": "id-application",
   "environment_variables": [],
   "group" : "cookbook-tests",
+  "auto_pr": true,
   "materials": [
     {
       "url": "git@github.com:JSainsburyPLC/id-chef.git",

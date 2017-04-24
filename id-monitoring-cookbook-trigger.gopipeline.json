@@ -2,6 +2,7 @@
   "name": "id-monitoring-trigger",
   "environment_variables": [],
   "group" : "cookbook-triggers",
+  "auto_pr": true,
   "materials": [
     {
       "url": "git@github.com:JSainsburyPLC/id-chef.git",
