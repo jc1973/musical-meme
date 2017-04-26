@@ -15,7 +15,7 @@
       "name": "pr-passed",
       "pipeline": "pr-build-js-gocd",
       "stage": "cookstyle"
-    },
+    }
   ],
   "stages": [
     {
