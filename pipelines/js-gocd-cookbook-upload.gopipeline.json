@@ -21,7 +21,7 @@
     {
       "name": "gather-dependancies",
       "fetch_materials": true,
-      "never_cleanup_artifacts": false,
+      "never_cleanup_artifacts": true,
       "clean_working_directory": false,
       "approval": {
         "type": "manual",
