@@ -55,8 +55,8 @@
     },
     {
       "name": "development",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
+      "fetch_materials": false,
+      "never_cleanup_artifacts": true,
       "clean_working_directory": false,
       "approval": {
         "type": "manual",
