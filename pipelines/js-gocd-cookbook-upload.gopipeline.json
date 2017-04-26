@@ -19,6 +19,41 @@
   ],
   "stages": [
     {
+      "name": "gather-dependancies",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "manual",
+        "users": [],
+        "roles": [
+        ]
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "install-chef-policy",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "chef",
+              "arguments": [ "install", "gocd-server-Policyfile.rb" ],
+              "working_directory": "cookbooks/js-gocd"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "development",
       "fetch_materials": true,
       "never_cleanup_artifacts": false,
