@@ -54,6 +54,41 @@
       ]
     },
     {
+      "name": "management",
+      "fetch_materials": false,
+      "never_cleanup_artifacts": true,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "manual",
+        "users": [],
+        "roles": [
+        ]
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "push-chef-policy",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "on_cancel" : null,
+              "command": "chef",
+              "arguments": [ "push",  "management", "gocd-server-Policyfile.rb" ],
+              "working_directory": "cookbooks/js-gocd"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "development",
       "fetch_materials": false,
       "never_cleanup_artifacts": true,
@@ -90,8 +125,8 @@
     },
     {
       "name": "staging",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
+      "fetch_materials": false,
+      "never_cleanup_artifacts": true,
       "clean_working_directory": false,
       "approval": {
         "type": "manual",
@@ -125,8 +160,8 @@
     },
     {
       "name": "int",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
+      "fetch_materials": false,
+      "never_cleanup_artifacts": true,
       "clean_working_directory": false,
       "approval": {
         "type": "manual",
@@ -160,8 +195,8 @@
     },
     {
       "name": "qa",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
+      "fetch_materials": false,
+      "never_cleanup_artifacts": true,
       "clean_working_directory": false,
       "approval": {
         "type": "manual",
@@ -195,8 +230,8 @@
     },
     {
       "name": "production",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
+      "fetch_materials": false,
+      "never_cleanup_artifacts": true,
       "clean_working_directory": false,
       "approval": {
         "type": "manual",
